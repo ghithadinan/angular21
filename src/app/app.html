@@ -12,7 +12,7 @@
          px-2 py-1 rounded transition">
         ☰
       </button>
-      <h1 class="font-bold text-lg ml-3">My App</h1>
+      <h1 class="font-bold text-lg">My App</h1>
     </div>
 
     <!-- RIGHT -->
@@ -35,9 +35,9 @@
         [class.pointer-events-auto]="isUserMenuOpen"
         [class.pointer-events-none]="!isUserMenuOpen">
 
-        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Profile</a>
-        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Settings</a>
-        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Logout</a>
+        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm">Profile</a>
+        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm">Settings</a>
+        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer text-sm">Logout</a>
 
       </div>
 
@@ -63,13 +63,12 @@
         [class.opacity-100]="isSidebarOpen"
         [class.opacity-0]="!isSidebarOpen">
 
-        <h2 class="text-xl font-semibold mb-4">Menu</h2>
-
+        <h2 class="text-lg font-semibold mb-4">Menu</h2>
         <a routerLink="/" (click)="isMobile && toggleSidebar()"
-           class="block p-2 rounded hover:bg-gray-700">Dashboard</a>
+           class="block p-2 rounded hover:bg-gray-700 text-sm">Dashboard</a>
         <a routerLink="/users" (click)="isMobile && toggleSidebar()"
-           class="block p-2 rounded hover:bg-gray-700">Users</a>
-        <a routerLink="/settings" (click)="isMobile && toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Settings</a>
+           class="block p-2 rounded hover:bg-gray-700 text-sm">Users</a>
+        <a routerLink="/settings" (click)="isMobile && toggleSidebar()" class="block p-2 rounded hover:bg-gray-700 text-sm">Settings</a>
 
       </div>
 
