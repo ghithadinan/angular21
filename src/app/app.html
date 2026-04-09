@@ -1,0 +1,61 @@
+<div class="flex flex-col h-screen">
+
+  <!-- HEADER -->
+  <header class="bg-gray-800 text-white flex items-center px-4 h-16 relative z-100">
+    <button
+      (click)="toggleSidebar()"
+      class="text-white text-2xl cursor-pointer hover:text-gray-300 transition">
+      ☰
+    </button>
+    <h1 class="font-bold text-lg ml-3">My App</h1>
+  </header>
+
+  <!-- BODY -->
+  <div class="flex flex-1 relative overflow-hidden">
+
+    <!-- SIDEBAR (COLLAPSIBLE) -->
+    <aside
+      class="bg-gray-900 text-white
+         md:relative fixed inset-y-0 left-0
+         z-90
+         transform transition-all duration-300 ease-in-out
+         overflow-hidden"
+      [class.w-64]="isSidebarOpen"
+      [class.w-0]="!isSidebarOpen">
+
+      <div
+        class="w-64 p-4 space-y-2 transition-opacity duration-200"
+        [class.opacity-100]="isSidebarOpen"
+        [class.opacity-0]="!isSidebarOpen">
+
+        <h2 class="text-xl font-semibold mb-4">Menu</h2>
+
+        <a routerLink="/" (click)="toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Dashboard</a>
+        <a routerLink="/users" (click)="toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Users</a>
+        <a routerLink="/settings" (click)="toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Settings</a>
+
+      </div>
+
+    </aside>
+
+    <!-- OVERLAY (mobile only) -->
+    @if (isSidebarOpen) {
+      <div
+        class="fixed inset-0 bg-black bg-opacity-50 z-80 md:hidden"
+        (click)="toggleSidebar()">
+      </div>
+    }
+
+    <!-- CONTENT -->
+    <main class="flex-1 p-6 bg-gray-100 overflow-y-auto">
+      <router-outlet></router-outlet>
+    </main>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-white text-center p-2">
+    © 2026 My App
+  </footer>
+
+</div>
