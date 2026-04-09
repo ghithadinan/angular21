@@ -1,4 +1,12 @@
-import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  Inject,
+  OnInit,
+  PLATFORM_ID,
+  ViewChild,
+} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterOutlet } from '@angular/router';
 
@@ -10,8 +18,10 @@ import { RouterLink, RouterOutlet } from '@angular/router';
   styleUrls: ['./app.css'],
 })
 export class AppComponent implements OnInit {
-  isSidebarOpen = true;
-  isMobile = false;
+  protected isSidebarOpen = true;
+  protected isMobile = false;
+  protected isUserMenuOpen = false;
+  @ViewChild('menuRef') menuRef!: ElementRef;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 
@@ -33,6 +43,18 @@ export class AppComponent implements OnInit {
       if (!this.isMobile) {
         this.isSidebarOpen = true;
       }
+    }
+  }
+
+  toggleUserMenu(event: Event) {
+    event.stopPropagation();
+    this.isUserMenuOpen = !this.isUserMenuOpen;
+  }
+
+  @HostListener('document:click', ['$event'])
+  onClickOutside(event: Event) {
+    if (!this.menuRef?.nativeElement.contains(event.target)) {
+      this.isUserMenuOpen = false;
     }
   }
 }

@@ -1,13 +1,48 @@
 <div class="flex flex-col h-screen">
 
   <!-- HEADER -->
-  <header class="bg-gray-800 text-white flex items-center px-4 h-16 relative z-100">
-    <button
-      (click)="toggleSidebar()"
-      class="text-white text-2xl cursor-pointer hover:text-gray-300 transition">
-      ☰
-    </button>
-    <h1 class="font-bold text-lg ml-3">My App</h1>
+  <header class="bg-gray-800 text-white flex items-center justify-between px-4 h-16 relative z-100">
+
+    <!-- LEFT -->
+    <div class="flex items-center">
+      <button
+        (click)="toggleSidebar()"
+        class="text-white text-2xl cursor-pointer
+         hover:bg-gray-700 active:scale-95
+         px-2 py-1 rounded transition">
+        ☰
+      </button>
+      <h1 class="font-bold text-lg ml-3">My App</h1>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="relative" #menuRef>
+
+      <!-- BUTTON -->
+      <div
+        (click)="toggleUserMenu($event)"
+        class="flex items-center space-x-3 cursor-pointer">
+        <img src="https://i.pravatar.cc/40" class="w-8 h-8 rounded-full" alt="">
+        <span class="hidden md:block">Ghitha Dinan</span>
+      </div>
+
+      <!-- DROPDOWN -->
+      <div
+        class="absolute right-0 mt-2 w-40 bg-white text-black rounded shadow-lg z-200
+           transition-all duration-200"
+        [class.opacity-100]="isUserMenuOpen"
+        [class.opacity-0]="!isUserMenuOpen"
+        [class.pointer-events-auto]="isUserMenuOpen"
+        [class.pointer-events-none]="!isUserMenuOpen">
+
+        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Profile</a>
+        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Settings</a>
+        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer">Logout</a>
+
+      </div>
+
+    </div>
+
   </header>
 
   <!-- BODY -->
