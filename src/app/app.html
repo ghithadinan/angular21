@@ -30,9 +30,11 @@
 
         <h2 class="text-xl font-semibold mb-4">Menu</h2>
 
-        <a routerLink="/" (click)="toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Dashboard</a>
-        <a routerLink="/users" (click)="toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Users</a>
-        <a routerLink="/settings" (click)="toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Settings</a>
+        <a routerLink="/" (click)="isMobile && toggleSidebar()"
+           class="block p-2 rounded hover:bg-gray-700">Dashboard</a>
+        <a routerLink="/users" (click)="isMobile && toggleSidebar()"
+           class="block p-2 rounded hover:bg-gray-700">Users</a>
+        <a routerLink="/settings" (click)="isMobile && toggleSidebar()" class="block p-2 rounded hover:bg-gray-700">Settings</a>
 
       </div>
 
