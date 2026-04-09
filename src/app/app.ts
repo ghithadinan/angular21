@@ -24,7 +24,6 @@ export class AppComponent implements OnInit {
 
   toggleSidebar() {
     this.isSidebarOpen = !this.isSidebarOpen;
-    console.log(this.isSidebarOpen);
   }
 
   checkScreen() {
