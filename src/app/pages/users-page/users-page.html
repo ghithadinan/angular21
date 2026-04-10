@@ -2,9 +2,8 @@
 
   <!-- SEARCH -->
   <div class="bg-(--color-content) p-4 rounded-lg shadow border border-(--color-border)">
-    <mat-form-field appearance="outline" class="w-full max-w-sm">
-      <mat-label>Search</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Search">
+    <mat-form-field appearance="outline" class="w-full max-w-xs text-sm">
+      <input matInput placeholder="Search" (keyup)="applyFilter($event)">
     </mat-form-field>
   </div>
 
