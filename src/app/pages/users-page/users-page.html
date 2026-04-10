@@ -1,7 +1,7 @@
 <div class="p-6 space-y-6">
 
   <!-- SEARCH -->
-  <div class="bg-white p-4 rounded shadow">
+  <div class="bg-(--color-content-hover) p-4 rounded shadow">
     <mat-form-field appearance="outline" class="w-full">
       <mat-label>Search</mat-label>
       <input matInput (keyup)="applyFilter($event)" placeholder="Search users">
@@ -9,7 +9,7 @@
   </div>
 
   <!-- TABLE -->
-  <div class="bg-white p-4 rounded shadow">
+  <div class="bg-(--color-content-hover) p-4 rounded shadow">
 
     <table mat-table [dataSource]="dataSource" matSort class="w-full">
 
@@ -36,7 +36,7 @@
 
       <!-- ROW -->
       <tr mat-row *matRowDef="let _row; columns: displayedColumns;"
-          class="hover:bg-gray-100 transition"></tr>
+          class="hover:bg-(--color-content-hover) transition"></tr>
 
     </table>
 

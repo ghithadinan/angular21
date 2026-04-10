@@ -1,13 +1,13 @@
 <div class="flex flex-col h-screen">
 
   <!-- HEADER -->
-  <header class="bg-(--color-primary) text-(--color-surface) flex items-center justify-between px-4 h-16 relative z-100">
+  <header class="bg-(--color-primary) text-(--color-content) flex items-center justify-between px-4 h-16 relative z-100">
 
     <!-- LEFT -->
     <div class="flex items-center">
       <button
         (click)="toggleSidebar()"
-        class="text-(--color-surface) text-2xl cursor-pointer
+        class="text-(--color-content) text-2xl cursor-pointer
          hover:bg-(--color-active) active:scale-95
          px-2 py-1 rounded transition">
         ☰
@@ -28,16 +28,16 @@
 
       <!-- DROPDOWN -->
       <div
-        class="absolute right-0 mt-2 w-40 bg-(--color-surface) text-black rounded shadow-lg z-200
+        class="absolute right-0 mt-2 w-40 bg-(--color-content) text-black rounded shadow-lg z-200
            transition-all duration-200"
         [class.opacity-100]="isUserMenuOpen"
         [class.opacity-0]="!isUserMenuOpen"
         [class.pointer-events-auto]="isUserMenuOpen"
         [class.pointer-events-none]="!isUserMenuOpen">
 
-        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer rounded text-sm">Profile</a>
-        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer rounded text-sm">Settings</a>
-        <a class="block px-4 py-2 hover:bg-gray-100 cursor-pointer rounded text-sm">Logout</a>
+        <a class="block px-4 py-2 hover:bg-(--color-content-hover) cursor-pointer rounded text-sm">Profile</a>
+        <a class="block px-4 py-2 hover:bg-(--color-content-hover) cursor-pointer rounded text-sm">Settings</a>
+        <a class="block px-4 py-2 hover:bg-(--color-content-hover) cursor-pointer rounded text-sm">Logout</a>
 
       </div>
 
@@ -50,7 +50,7 @@
 
     <!-- SIDEBAR (COLLAPSIBLE) -->
     <aside
-      class="bg-(--color-secondary) text-(--color-surface)
+      class="bg-(--color-secondary) text-(--color-content)
          md:relative fixed inset-y-0 left-0
          z-90
          transform transition-all duration-300 ease-in-out
@@ -89,14 +89,14 @@
     }
 
     <!-- CONTENT -->
-    <main class="flex-1 p-6 bg-(--color-content-bg) overflow-y-auto">
+    <main class="flex-1 p-6 bg-(--color-content) overflow-y-auto">
       <router-outlet></router-outlet>
     </main>
 
   </div>
 
   <!-- FOOTER -->
-  <footer class="bg-(--color-primary) text-(--color-surface) text-center p-2">
+  <footer class="bg-(--color-primary) text-(--color-content) text-center p-2">
     © 2026 My App
   </footer>
 
