@@ -1,50 +1,77 @@
 <div class="p-6 space-y-6">
 
   <!-- SEARCH -->
-  <div class="bg-(--color-content-hover) p-4 rounded shadow">
-    <mat-form-field appearance="outline" class="w-full">
+  <div class="bg-(--color-content) p-4 rounded-lg shadow border border-(--color-border)">
+    <mat-form-field appearance="outline" class="w-full max-w-sm">
       <mat-label>Search</mat-label>
-      <input matInput (keyup)="applyFilter($event)" placeholder="Search users">
+      <input matInput (keyup)="applyFilter($event)" placeholder="Search">
     </mat-form-field>
   </div>
 
   <!-- TABLE -->
-  <div class="bg-(--color-content-hover) p-4 rounded shadow">
+  <div class="bg-(--color-content) p-4 rounded-lg shadow border border-(--color-border)">
 
-    <table mat-table [dataSource]="dataSource" matSort class="w-full">
+    <table mat-table [dataSource]="dataSource" matSort class="w-full bg-transparent!">
 
       <!-- ID -->
       <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header
+            class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
+          ID
+        </th>
+        <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
+          {{element.id}}
+        </td>
       </ng-container>
 
       <!-- NAME -->
       <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header
+            class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
+          Name
+        </th>
+        <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
+          {{element.name}}
+        </td>
       </ng-container>
 
       <!-- EMAIL -->
       <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
-        <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+        <th mat-header-cell *matHeaderCellDef mat-sort-header
+            class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
+          Email
+        </th>
+        <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
+          {{element.email}}
+        </td>
       </ng-container>
 
       <!-- HEADER -->
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-header-row
+        *matHeaderRowDef="displayedColumns"
+        class="bg-(--color-content)! border-b border-(--color-border)">
+      </tr>
 
       <!-- ROW -->
-      <tr mat-row *matRowDef="let _row; columns: displayedColumns;"
-          class="hover:bg-(--color-content-hover) transition"></tr>
+      <tr
+        mat-row
+        *matRowDef="let row; columns: displayedColumns; let i = index"
+        class="bg-transparent!
+             border-b border-(--color-border)
+             hover:bg-(--color-content-hover)!
+             transition-colors duration-200">
+      </tr>
 
     </table>
 
     <!-- PAGINATOR -->
-    <mat-paginator
-      [pageSize]="3"
-      [pageSizeOptions]="[3, 5, 10]">
-    </mat-paginator>
+    <div class="mt-4">
+      <mat-paginator
+        [pageSize]="3"
+        [pageSizeOptions]="[3, 5, 10]">
+      </mat-paginator>
+    </div>
 
   </div>
 

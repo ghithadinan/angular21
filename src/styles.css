@@ -1,7 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import 'tailwindcss';
-
+@import "tailwindcss";
 
 :root {
   /* MAIN */
@@ -10,6 +9,26 @@
   --color-active: #364153;
 
   /* BACKGROUND */
-  --color-content: #ffffff;
-  --color-content-hover: #f3f4f6;
+  --color-bg: #f9fafb;            /* abu tipis biar ga flat */
+  --color-content: #ffffff;       /* putih utama */
+  --color-content-hover: #f3f4f6; /* hover halus */
+
+  /* TEXT */
+  --color-text: #111827;
+  --color-text-muted: #6b7280;
+
+  /* BORDER */
+  --color-border: #e5e7eb;
+}
+
+.mdc-data-table__row {
+  background-color: transparent !important;
+}
+
+.mdc-data-table__header-row {
+  background-color: transparent !important;
+}
+
+.mat-mdc-form-field-subscript-wrapper {
+  display: none;
 }
