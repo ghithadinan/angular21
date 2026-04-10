@@ -9,12 +9,10 @@
   --color-active: #364153;
 
   /* BACKGROUND */
-  --color-bg: #f9fafb;            /* abu tipis biar ga flat */
-  --color-content: #ffffff;       /* putih utama */
-  --color-content-hover: #f3f4f6; /* hover halus */
+  --color-bg: #f9fafb;
+  --color-content-hover: #f3f4f6;
 
   /* TEXT */
-  --color-text: #111827;
   --color-text-muted: #6b7280;
 
   /* BORDER */
