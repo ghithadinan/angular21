@@ -1,7 +1,8 @@
-<div class="flex flex-col h-screen">
+<div class="flex flex-col h-screen text-(--color-content)">
 
   <!-- HEADER -->
-  <header class="bg-(--color-primary) text-(--color-content) flex items-center justify-between px-4 h-16 relative z-100">
+  <header class="bg-(--color-primary) flex items-center justify-between
+  px-4 h-16 relative z-100">
 
     <!-- LEFT -->
     <div class="flex items-center">
@@ -22,22 +23,41 @@
       <div
         (click)="toggleUserMenu($event)"
         class="flex items-center space-x-3 cursor-pointer">
-        <img src="https://i.pravatar.cc/40" class="w-8 h-8 rounded-full" alt="">
+        <img src="/profile.jpeg" class="w-8 h-8 rounded-full" alt="">
         <span class="hidden md:block">Ghitha Dinan</span>
       </div>
 
       <!-- DROPDOWN -->
       <div
-        class="absolute right-0 mt-2 w-40 bg-(--color-content) text-black rounded shadow-lg z-200
-           transition-all duration-200"
+        class="absolute right-0 mt-2 w-40 bg-(--color-secondary) rounded shadow-lg
+        z-200 transition-all duration-200"
         [class.opacity-100]="isUserMenuOpen"
         [class.opacity-0]="!isUserMenuOpen"
         [class.pointer-events-auto]="isUserMenuOpen"
         [class.pointer-events-none]="!isUserMenuOpen">
 
-        <a class="block px-4 py-2 hover:bg-(--color-content-hover) cursor-pointer rounded text-sm">Profile</a>
-        <a class="block px-4 py-2 hover:bg-(--color-content-hover) cursor-pointer rounded text-sm">Settings</a>
-        <a class="block px-4 py-2 hover:bg-(--color-content-hover) cursor-pointer rounded text-sm">Logout</a>
+        <a
+          routerLink="/profile"
+          routerLinkActive="bg-(--color-active) text-white"
+          class="block px-4 py-2 hover:bg-(--color-active) cursor-pointer rounded text-sm"
+        >
+          Profile
+        </a>
+
+        <a
+          routerLink="/settings"
+          routerLinkActive="bg-(--color-active) text-white"
+          class="block px-4 py-2 hover:bg-(--color-active) cursor-pointer rounded text-sm"
+        >
+          Settings
+        </a>
+
+        <a
+          (click)="logout();"
+          class="block px-4 py-2 hover:bg-(--color-active) cursor-pointer rounded text-sm"
+        >
+          Logout
+        </a>
 
       </div>
 
@@ -50,8 +70,7 @@
 
     <!-- SIDEBAR (COLLAPSIBLE) -->
     <aside
-      class="bg-(--color-secondary) text-(--color-content)
-         md:relative fixed inset-y-0 left-0
+      class="bg-(--color-secondary) md:relative fixed inset-y-0 left-0
          z-90
          transform transition-all duration-300 ease-in-out
          overflow-hidden"
@@ -64,11 +83,24 @@
         [class.opacity-0]="!isSidebarOpen">
 
         <h2 class="text-lg font-semibold mb-4">Menu</h2>
-        <a routerLink="/" (click)="isMobile && toggleSidebar()"
-           class="block p-2 rounded hover:bg-(--color-active) text-sm">Dashboard</a>
-        <a routerLink="/users" (click)="isMobile && toggleSidebar()"
-           class="block p-2 rounded hover:bg-(--color-active) text-sm">Users</a>
-        <a routerLink="/settings" (click)="isMobile && toggleSidebar()" class="block p-2 rounded hover:bg-(--color-active) text-sm">Settings</a>
+        <a
+          routerLink="/"
+          routerLinkActive="bg-(--color-active) text-white"
+          [routerLinkActiveOptions]="{ exact: true }"
+          (click)="isMobile && toggleSidebar()"
+          class="block p-2 rounded text-sm transition-colors duration-200 hover:bg-(--color-active)"
+        >
+          Dashboard
+        </a>
+
+        <a
+          routerLink="/users"
+          routerLinkActive="bg-(--color-active) text-white"
+          (click)="isMobile && toggleSidebar()"
+          class="block p-2 rounded text-sm transition-colors duration-200 hover:bg-(--color-active)"
+        >
+          Users
+        </a>
 
       </div>
 
@@ -89,7 +121,7 @@
     }
 
     <!-- CONTENT -->
-    <main class="flex-1 p-6 bg-(--color-content) overflow-y-auto">
+    <main class="flex-1 p-6 overflow-y-auto text-(--color-text)">
       <router-outlet></router-outlet>
     </main>
 

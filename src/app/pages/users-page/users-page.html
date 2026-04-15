@@ -1,75 +1,68 @@
 <div class="p-6 space-y-6">
 
   <!-- SEARCH -->
-  <div class="bg-(--color-content) p-4 rounded-lg shadow border border-(--color-border)">
+  <div class="p-4 rounded-lg shadow">
     <mat-form-field appearance="outline" class="w-full max-w-xs text-sm">
       <input matInput placeholder="Search" (keyup)="applyFilter($event)">
     </mat-form-field>
   </div>
 
   <!-- TABLE -->
-  <div class="bg-(--color-content) p-4 rounded-lg shadow border border-(--color-border)">
+  <div class="p-4 rounded-lg shadow">
+    <div class="table-container">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-table-bordered">
 
-    <table mat-table [dataSource]="dataSource" matSort class="w-full bg-transparent!">
+        <!-- ID -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+              class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
+            ID
+          </th>
+          <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
+            {{ element.id }}
+          </td>
+        </ng-container>
 
-      <!-- ID -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header
-            class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
-          ID
-        </th>
-        <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
-          {{element.id}}
-        </td>
-      </ng-container>
+        <!-- NAME -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+              class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
+            Name
+          </th>
+          <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
+            {{ element.name }}
+          </td>
+        </ng-container>
 
-      <!-- NAME -->
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header
-            class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
-          Name
-        </th>
-        <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
-          {{element.name}}
-        </td>
-      </ng-container>
+        <!-- EMAIL -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header
+              class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
+            Email
+          </th>
+          <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
+            {{ element.email }}
+          </td>
+        </ng-container>
 
-      <!-- EMAIL -->
-      <ng-container matColumnDef="email">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header
-            class="px-4 py-3 text-sm font-semibold text-(--color-text-muted)">
-          Email
-        </th>
-        <td mat-cell *matCellDef="let element" class="px-4 py-3 text-sm">
-          {{element.email}}
-        </td>
-      </ng-container>
+        <!-- HEADER -->
+        <tr
+          mat-header-row
+          *matHeaderRowDef="displayedColumns">
+        </tr>
 
-      <!-- HEADER -->
-      <tr
-        mat-header-row
-        *matHeaderRowDef="displayedColumns"
-        class="bg-(--color-content)! border-b border-(--color-border)">
-      </tr>
+        <!-- ROW -->
+        <tr mat-row
+            *matRowDef="let _row; columns: displayedColumns; let _i = index">
+        </tr>
 
-      <!-- ROW -->
-      <tr
-        mat-row
-        *matRowDef="let row; columns: displayedColumns; let i = index"
-        class="bg-transparent!
-             border-b border-(--color-border)
-             hover:bg-(--color-content-hover)!
-             transition-colors duration-200">
-      </tr>
+      </table>
 
-    </table>
-
-    <!-- PAGINATOR -->
-    <div class="mt-4">
-      <mat-paginator
-        [pageSize]="3"
-        [pageSizeOptions]="[3, 5, 10]">
+      <mat-paginator class="mt-4"
+        [pageSize]="10"
+        [pageSizeOptions]="[10, 20, 100]">
       </mat-paginator>
+
     </div>
 
   </div>

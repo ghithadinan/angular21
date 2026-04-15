@@ -8,12 +8,12 @@ import {
   ViewChild,
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, RouterLink],
+  imports: [RouterOutlet, RouterLink, RouterLinkActive],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
 })
@@ -56,5 +56,9 @@ export class AppComponent implements OnInit {
     if (!this.menuRef?.nativeElement.contains(event.target)) {
       this.isUserMenuOpen = false;
     }
+  }
+
+  protected logout() {
+    this.isUserMenuOpen = false;
   }
 }

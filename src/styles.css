@@ -4,50 +4,76 @@
 
 :root {
   /* MAIN */
-  --color-primary: #1f2937;
-  --color-secondary: #111827;
-  --color-active: #364153;
+  --color-primary: #111827;
+  --color-secondary: #1a2233;
+  --color-active: #222c3f;
 
-  /* BACKGROUND */
-  --color-bg: #f9fafb;
+  /* CONTENT */
   --color-content: #ffffff;
   --color-content-hover: #f3f4f6;
 
   /* TEXT */
+  --color-text: #000000;
   --color-text-muted: #6b7280;
 
   /* BORDER */
-  --color-border: #e5e7eb;
+  --color-border: #d1d5db;
 }
 
-.mdc-data-table__row {
-  background-color: transparent !important;
-}
 
-.mdc-data-table__header-row {
-  background-color: transparent !important;
-}
-
+/* mat-form-field */
 .mat-mdc-form-field-subscript-wrapper {
   display: none;
 }
 
-
-/* tinggi wrapper */
-.mat-mdc-form-field .mat-mdc-text-field-wrapper {
-  height: 40px;
-}
-
-/* area dalam */
 .mat-mdc-form-field .mat-mdc-form-field-infix {
   min-height: 40px;
   padding: 0 !important;
   display: flex;
   align-items: center;
 }
+/* mat-form-field */
 
-/* INI KUNCI BIAR CENTER SEMPURNA */
-.mat-mdc-input-element {
-  height: 100%;
-  line-height: 1;
+/* mat-table */
+.mat-table-bordered {
+  border: 1px solid var(--color-border) !important;
+  border-collapse: collapse !important;
+  background: var(--color-content);
 }
+
+/* cell */
+.mat-table-bordered .mat-mdc-header-cell,
+.mat-table-bordered .mat-mdc-cell {
+  border-right: 1px solid var(--color-border) !important;
+  border-bottom: 1px solid var(--color-border) !important;
+}
+
+/* kanan terakhir */
+.mat-table-bordered .mat-mdc-header-cell:last-child,
+.mat-table-bordered .mat-mdc-cell:last-child {
+  border-right: none !important;
+}
+
+/* header */
+.mat-table-bordered .mat-mdc-header-row {
+  background-color: var(--color-content-hover);
+}
+
+/* hover */
+.mat-table-bordered .mat-mdc-row:hover .mat-mdc-cell {
+  background-color: var(--color-content-hover);
+  transition: background-color 0.2s ease;
+}
+
+/* zebra biar ga polos */
+.mat-table-bordered .mat-mdc-row:nth-child(even) .mat-mdc-cell {
+  background-color: var(--color-content-hover);
+}
+
+/* container scroll */
+.table-container {
+  width: 100%;
+  overflow-x: auto;
+}
+/* mat-table */
+

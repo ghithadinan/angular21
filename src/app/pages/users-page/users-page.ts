@@ -32,6 +32,13 @@ export class UsersPage implements AfterViewInit {
     { id: 3, name: 'User 3', email: 'user3@mail.com' },
     { id: 4, name: 'User 4', email: 'user4@mail.com' },
     { id: 5, name: 'User 5', email: 'user5@mail.com' },
+    { id: 6, name: 'User 6', email: 'user5@mail.com' },
+    { id: 7, name: 'User 7', email: 'user5@mail.com' },
+    { id: 8, name: 'User 8', email: 'user5@mail.com' },
+    { id: 9, name: 'User 9', email: 'user5@mail.com' },
+    { id: 10, name: 'User 10', email: 'user5@mail.com' },
+    { id: 11, name: 'User 11', email: 'user5@mail.com' },
+    { id: 12, name: 'User 12', email: 'user5@mail.com' },
   ]);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
