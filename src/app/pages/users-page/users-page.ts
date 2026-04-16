@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
 import { MatIcon } from '@angular/material/icon';
-import { RouterLink, RouterOutlet } from '@angular/router';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-users-page',
@@ -23,7 +23,6 @@ import { RouterLink, RouterOutlet } from '@angular/router';
     MatSortModule,
     MatIcon,
     RouterLink,
-    RouterOutlet,
   ],
   templateUrl: './users-page.html',
   styleUrl: './users-page.css',
