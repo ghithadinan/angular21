@@ -9,6 +9,8 @@ import {
 } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { MatIconRegistry } from '@angular/material/icon';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +25,16 @@ export class AppComponent implements OnInit {
   protected isUserMenuOpen = false;
   @ViewChild('menuRef') menuRef!: ElementRef;
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private matIconRegistry: MatIconRegistry,
+    private sanitizer: DomSanitizer,
+  ) {
+    this.matIconRegistry.addSvgIconSetInNamespace(
+      'heroicons_mini',
+      this.sanitizer.bypassSecurityTrustResourceUrl('assets/icons/heroicons-mini.svg'),
+    );
+  }
 
   ngOnInit(): void {
     if (isPlatformBrowser(this.platformId)) {

@@ -7,6 +7,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { CommonModule } from '@angular/common';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
+import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-users-page',
@@ -19,6 +20,7 @@ import { MatSort, MatSortModule } from '@angular/material/sort';
     MatButtonModule,
     MatPaginatorModule,
     MatSortModule,
+    MatIcon,
   ],
   templateUrl: './users-page.html',
   styleUrl: './users-page.css',
